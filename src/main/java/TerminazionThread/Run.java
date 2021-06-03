@@ -18,7 +18,19 @@ public class Run {
 
         while (checkThread(running) > 0){
             try {
-                pp[new Scanner(System.in).nextInt()].stop();
+                int c = new Scanner(System.in).nextInt();
+                if(c >= 0 && c < Integer.parseInt(argv[0])) {
+                    if (running[c] == true) {
+                        pp[c].stop();
+                        running[c] = false;
+                    }
+                    else{
+                        System.out.println("già morto");
+                    }
+                }
+                else{
+                    System.out.println("fouri bound");
+                }
             }catch (NumberFormatException e){
                 System.out.println("devi inserire un numero");
             }

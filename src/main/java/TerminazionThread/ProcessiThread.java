@@ -13,7 +13,7 @@ public class ProcessiThread implements Runnable{
     }
 
     public void start(){
-        t = new Thread();
+        this.t = new Thread(this);
         t.start();
     }
 
@@ -27,10 +27,10 @@ public class ProcessiThread implements Runnable{
         while (running.get()){
             try {
                 System.out.println("Thread: " + Id);
-                Thread.sleep(100);
+                Thread.sleep(5000);
             } catch (InterruptedException e){
-                stop();
                 System.out.println("Eleminazione T: "+Id);
+                Thread.currentThread().interrupt();
             }
         }
     }
