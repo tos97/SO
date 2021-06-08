@@ -18,13 +18,15 @@ public class Magazzino {
         return magazzino.containsKey(nome);
     }
 
-    public synchronized void addObject(String nome){
+    public synchronized void addObject(String nome, int id){
         try {
             Thread.sleep(500);
         } catch (InterruptedException e) { }
 
-        if(!magazzino.containsKey(nome))
+        if(!magazzino.containsKey(nome)) {
+            System.out.println("Creo oggetto bulloni" +" Thread "+id);
             magazzino.put(nome, new Integer(0));
+        }
     }
 
     public synchronized boolean quantity(String nome, int q){

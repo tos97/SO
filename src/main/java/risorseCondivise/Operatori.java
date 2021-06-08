@@ -15,8 +15,7 @@ public class Operatori extends Thread{
     @Override
     public void run() {
         if (!mag.existObject("bulloni")){
-            mag.addObject("bulloni");
-            System.out.println("Creo oggetto bulloni" +" Thread "+id);
+            mag.addObject("bulloni", id);
         }
 
         if (mag.quantity("bulloni", 1000))
