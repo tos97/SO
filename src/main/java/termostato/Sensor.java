@@ -22,15 +22,13 @@ public class Sensor extends Thread{
             oos = new ObjectOutputStream(pos);
             while(true){
                 try {
-                    Thread.sleep(2000);
+                    Thread.sleep(1000);
                 }catch(InterruptedException e){ }
-
 
                     float temperatura = 18 + rand.nextFloat() * (21-18);
                     Message mes = new Message(temperatura);
                     oos.writeObject(mes);
                     oos.flush();
-
             }
         } catch (IOException e){
 
