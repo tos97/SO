@@ -24,13 +24,11 @@ public class Sorter implements Runnable{
         while(running.get()){
             try{
                 Thread.sleep(150);
-                //System.out.println("prova");
                 int id = threadLoad.getMaxkey();
                 if (id == 0)
                     continue;
                 double cpu = threadLoad.getValues(id);
                 String risultato = "IL Thread "+id+" ha la temperatura di "+cpu;
-                //System.out.println(risultato);
                 bw.write(risultato);
                 bw.newLine();
                 bw.flush();
